@@ -1,0 +1,62 @@
+<div class="container mx-auto py-8">
+  <div class="bg-card p-6 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-4">Cadastro de Produtos</h1>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="grid gap-4">
+      <div class="grid gap-1">
+        <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="codigo">
+          Código do Produto
+        </label>
+        <input
+          formControlName="codigo"
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="codigo"
+          placeholder="Digite o código do produto"
+          type="text"
+        />
+      </div>
+      <div class="grid gap-1">
+        <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="descricao">
+          Descrição
+        </label>
+        <textarea
+          formControlName="descricao"
+          class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="descricao"
+          placeholder="Digite a descrição do produto"
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="grid gap-1">
+          <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="dataEntrada">
+            Data de Entrada
+          </label>
+          <input
+            formControlName="dataEntrada"
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="dataEntrada"
+            type="date"
+          />
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="dataValidade">
+            Data de Validade
+          </label>
+          <input
+            formControlName="dataValidade"
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="dataValidade"
+            type="date"
+          />
+        </div>
+      </div>
+      <button
+        class="inline-flex bg-[#111827] items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-white hover:bg-primary/90 h-10 px-4 py-2 w-full"
+        type="submit"
+        [disabled]="productForm.invalid"
+      >
+        Cadastrar Produto
+      </button>
+    </form>
+  </div>
+</div>

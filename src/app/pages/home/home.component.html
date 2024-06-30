@@ -1,0 +1,42 @@
+<div class="container mx-auto py-8">
+  <div class="flex flex-col space-y-1.5 p-6">
+    <h3 class="whitespace-nowrap tracking-tight text-2xl font-bold">Crie a sua conta</h3>
+    <p class="text-sm text-muted-foreground">Preencha o formulário abaixo para se inscrever e utilizar a aplicação.</p>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-6 space-y-4">
+    <div class="grid gap-2">
+      <label class="text-sm font-medium" for="nome">Nome</label>
+      <input formControlName="nome" class="flex h-10 w-full rounded-md border" placeholder="Digite seu nome completo"/>
+      <div *ngIf="form.get('nome')?.errors?.['duasPalavras'] && form.get('nome')?.touched" class="text-red-600 text-sm">
+        Por favor, insira pelo menos o nome e sobrenome.
+      </div>
+      <div *ngIf="form.get('nome')?.errors?.['required'] && form.get('nome')?.touched" class="text-red-600 text-sm">
+        O nome é obrigatório.
+      </div>
+    </div>
+    <div class="grid gap-2">
+      <label class="text-sm font-medium" for="email">Email</label>
+      <input formControlName="email" type="email" class="flex h-10 w-full rounded-md border" placeholder="exemplo@email.com"/>
+      <div *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched" class="text-red-600 text-sm">
+        Email é obrigatório.
+      </div>
+      <div *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched" class="text-red-600 text-sm">
+        Por favor, insira um endereço de email válido.
+      </div>
+    </div>
+    <div class="grid gap-2">
+      <label class="text-sm font-medium" for="senha">Senha</label>
+      <input formControlName="senha" type="password" class="flex h-10 w-full rounded-md border" placeholder="Digite sua senha"/>
+      <div *ngIf="form.get('senha')?.errors?.['required'] && form.get('senha')?.touched" class="text-red-600 text-sm">
+        A senha é obrigatória.
+      </div>
+      <div *ngIf="form.get('senha')?.errors?.['minlength'] && form.get('senha')?.touched" class="text-red-600 text-sm">
+        A senha deve ter pelo menos 6 caracteres.
+      </div>
+    </div>
+    <button type="submit" class="bg-[#111827] inline-flex items-center justify-center w-full h-10 px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring disabled:pointer-events-none disabled:opacity-50"
+      [disabled]="!form.valid">
+      Cadastrar
+    </button>
+  </form>
+</div>

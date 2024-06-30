@@ -1,0 +1,23 @@
+<nav class="bg-white dark:bg-gray-900 shadow">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+
+      @if (sidebarSignal.sidebarOpen()) {
+      <mat-icon class="dark:text-white cursor-pointer" (click)="toggle()">close</mat-icon>
+
+      }
+      @else{
+      <mat-icon class="dark:text-white cursor-pointer" (click)="toggle()">menu</mat-icon>
+      }
+
+        <span onclick="location.reload()" class="text-xl md:text-3xl font-semibold text-gray-700 dark:text-white cursor-pointer">
+          Desafio by 
+          <span onclick="location.reload()" class="inline-block align-middle cursor-pointer">
+            <img src="https://firebasestorage.googleapis.com/v0/b/encaixa-ai.appspot.com/o/logo-digiboard.png?alt=media&token=0f734f94-c138-4a2b-bb15-2be8cefa2d7a" alt="Logo Digiboard" class="inline-block w-40 h-11 ml-1">
+          </span>
+        </span>
+
+      <span class="text-[#111827] dark:text-[#111827] hover:underline hidden sm:block">.</span>
+    </div>
+  </div>
+</nav>
